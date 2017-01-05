@@ -4,11 +4,25 @@
 class RegistrosController extends AppController 
 {
 	public $helpers = array( 'Html', 'Form', 'Flash', 'Time' );
-	public $components = array( 'Flash' );
+	public $components = array( 'Flash', 'RequestHandler' );
 
-	public function index () 
+	public $paginate = array (
+		'limit' => 5,
+		'order' => array (
+			'Registro.Fecha' => 'desc'
+		)
+	);
+
+	public function index ()
 	{
-		$this -> set ( 'registros', $this -> Registro ->  find ('all') );
+		$this -> Registro -> recursive = 0;
+		$this -> paginate['Registro']['limit'] = 5;
+		$this -> paginate['Registro']['order'] = array (
+			'Registro.Fecha' => 'desc'
+		); 
+		//$this -> paginate['Moto']['conditions'] = array ( 'Mesero.id' => '')
+		
+		$this -> set ( 'registros', $this -> paginate() );
 	}
 
 	public function nuevo () 

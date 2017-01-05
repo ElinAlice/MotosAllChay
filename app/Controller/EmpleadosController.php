@@ -3,12 +3,26 @@
 
 class EmpleadosController extends AppController 
 {
-	public $helpers = array( 'Html', 'Form', 'Flash' );
-	public $components = array( 'Flash' );
+	public $helpers = array( 'Html', 'Form', 'Flash', 'Js' );
+	public $components = array( 'Flash', 'RequestHandler' );
+
+	public $paginate = array (
+		'limit' => 5,
+		'order' => array (
+			'Empleado.id' => 'asc'
+		)
+	);
 
 	public function index ()
 	{
-		$this -> set ( 'empleados', $this -> Empleado ->  find ('all') );
+		$this -> Empleado -> recursive = 0;
+		$this -> paginate['Empleado']['limit'] = 5;
+		$this -> paginate['Empleado']['order'] = array (
+			'Empleado.id' => 'asc'
+		); 
+		//$this -> paginate['Empleado']['conditions'] = array ( 'Mesero.id' => '')
+		
+		$this -> set ( 'empleados', $this -> paginate() );
 	}
 
 	public function ver ( $id = null ) 

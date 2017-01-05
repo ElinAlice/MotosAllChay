@@ -4,11 +4,25 @@
 class MotosController extends AppController 
 {
 	public $helpers = array( 'Html', 'Form', 'Flash' );
-	public $components = array( 'Flash' );
+	public $components = array( 'Flash', 'RequestHandler' );
+
+	public $paginate = array (
+		'limit' => 5,
+		'order' => array (
+			'Moto.id' => 'asc'
+		)
+	);
 
 	public function index ()
 	{
-		$this -> set ( 'motos', $this -> Moto ->  find ('all') );
+		$this -> Moto -> recursive = 0;
+		$this -> paginate['Moto']['limit'] = 5;
+		$this -> paginate['Moto']['order'] = array (
+			'Moto.id' => 'asc'
+		); 
+		//$this -> paginate['Moto']['conditions'] = array ( 'Mesero.id' => '')
+		
+		$this -> set ( 'motos', $this -> paginate() );
 	}
 
 	public function ver ( $id = null ) 
