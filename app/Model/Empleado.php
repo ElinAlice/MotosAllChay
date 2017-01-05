@@ -25,7 +25,7 @@ class Empleado extends AppModel
 		),
 		'Nombre'         => 'notBlank',
 		'Apellidos'      => 'notBlank',
-		'Contrasena'     => 'notBlank',
+		'Direccion'     => 'notBlank',
 		'Tipo'           => 'notBlank'
 	);
 

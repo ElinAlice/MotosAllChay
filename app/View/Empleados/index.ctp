@@ -32,7 +32,7 @@
 				<th><?php echo $this->Paginator->sort('DNI_Empleado'); ?></th>
 				<th><?php echo $this->Paginator->sort('Nombre'); ?></th>
 				<th><?php echo $this->Paginator->sort('Apellidos'); ?></th>
-				<th><?php echo $this->Paginator->sort('Contrasena'); ?></th>
+				<th><?php echo $this->Paginator->sort('Direccion'); ?></th>
 				<th><?php echo $this->Paginator->sort('Tipo'); ?></th>
 				<th class="actions"><?php echo __('Acciones'); ?></th>
 		</tr>
@@ -44,7 +44,7 @@
 			<td><?php echo h($empleado['Empleado']['DNI_Empleado']); ?>&nbsp;</td>
 			<td><?php echo h($empleado['Empleado']['Nombre']); ?>&nbsp;</td>
 			<td><?php echo h($empleado['Empleado']['Apellidos']); ?>&nbsp;</td>
-			<td><?php echo h($empleado['Empleado']['Contrasena']); ?>&nbsp;</td>
+			<td><?php echo h($empleado['Empleado']['Direccion']); ?>&nbsp;</td>
 			<td><?php echo h($empleado['Empleado']['Tipo']); ?>&nbsp;</td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('Detalles'), array('action' => 'ver', $empleado['Empleado']['id']), array('class' => 'btn btn-sm btn-default')); ?>
