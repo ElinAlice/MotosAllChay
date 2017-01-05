@@ -71,11 +71,11 @@ class EmpleadosController extends AppController
 
 			if ( $this -> Empleado ->  save ( $this -> request -> data ) )
 			{
-				$this -> Flash -> success ( 'Empleado fue creado.' );				
+				$this->Session->setFlash('El Trabajador fue creado.', 'default', array('class' => 'alert alert-success'));			
 				return $this -> redirect ( array ( 'action' => 'index' ) );
 			}
 
-			$this -> Flash -> error ( 'No se pudo crear el empleado.' );
+			$this->Session->setFlash('No puedo crear el empleado.', 'default', array('class' => 'alert alert-danger'));
 		}
 	}
 
@@ -99,11 +99,11 @@ class EmpleadosController extends AppController
 
 			if ( $this -> Empleado ->  save( $this -> request -> data ) )
 			{
-				$this -> Flash -> success ( 'El Empleado fue modificado exitosamente.');
+				$this->Session->setFlash('El Trabajador fue modificado exitosamente.', 'default', array('class' => 'alert alert-success'));
 				return $this -> redirect ( array ( 'action' => 'index' ) );
 			}
 
-			$this -> Flash -> error ( 'El Empleado no pudo ser modificado');
+			$this->Session->setFlash('El Trabajador no pudo ser modificado.', 'default', array('class' => 'alert alert-danger'));
 		}
 
 		if ( ! $this -> request -> data )
@@ -121,7 +121,7 @@ class EmpleadosController extends AppController
 
 		if ( $this -> Empleado -> delete ( $id ) )
 		{
-			$this -> Flash -> success ( 'El Empleado con Id ' . $id . ' Fue Eliminado' );
+			$this->Session->setFlash('El Empleado fue eliminado.', 'default', array('class' => 'alert alert-success'));
 			$this -> redirect ( array ( 'action' => 'index' ) );
 		}
 	}

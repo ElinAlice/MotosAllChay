@@ -54,11 +54,11 @@ class RegistrosController extends AppController
 
 			if ( $this -> Registro ->  save ( $this -> request -> data ) )
 			{
-				$this -> Flash -> success ( 'La Reparación fue creada.' );				
+				$this->Session->setFlash('La reparacion fue guardada.', 'default', array('class' => 'alert alert-success'));				
 				return $this -> redirect ( array ( 'action' => 'index' ) );
 			}   
 
-			$this -> Flash -> error ( 'No se pudo crear La Reparación.' );
+			$this->Session->setFlash('No se pudo guardar la reparacion', 'default', array('class' => 'alert alert-danger'));
 		}
 
 		$motos = $this -> Registro -> Moto -> find( 'list', array ( 'fields' => array ( 'id', 'marca_modelo_color' ) ) );
@@ -87,11 +87,11 @@ class RegistrosController extends AppController
 
 			if ( $this -> Registro ->  save( $this -> request -> data ) )
 			{
-				$this -> Flash -> success ( 'La Reparación fue modificada exitosamente.');
+				$this->Session->setFlash('La Reparacion fue modificada exitosamente.', 'default', array('class' => 'alert alert-success'));
 				return $this -> redirect ( array ( 'action' => 'index' ) );
 			}
 
-			$this -> Flash -> error ( 'La Reparación no pudo ser modificada');
+			$this->Session->setFlash('La Reparacion no pudo ser modificada.', 'default', array('class' => 'alert alert-danger'));
 		}
 
 		if ( ! $this -> request -> data )
@@ -114,7 +114,7 @@ class RegistrosController extends AppController
 
 		if ( $this -> Registro -> delete ( $id ) )
 		{
-			$this -> Flash -> success ( 'La Reparación con Id ' . $id . ' Fue Eliminada' );
+			$this->Session->setFlash('Se elimino la reparacion exitosamente.', 'default', array('class' => 'alert alert-success'));
 			$this -> redirect ( array ( 'action' => 'index' ) );
 		}
 	}

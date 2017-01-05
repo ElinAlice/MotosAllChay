@@ -71,11 +71,11 @@ class MotosController extends AppController
 
 			if ( $this -> Moto ->  save ( $this -> request -> data ) )
 			{
-				$this -> Flash -> success ( 'Moto fue creado.' );				
+				$this->Session->setFlash('La Moto se guardo exitosamente.', 'default', array('class' => 'alert alert-success'));			
 				return $this -> redirect ( array ( 'action' => 'index' ) );
 			}
 
-			$this -> Flash -> error ( 'No se pudo crear La Moto.' );
+			$this -> Session -> setFlash ( 'No se pudo crear la moto.', 'default', array('class' => 'alert alert-danger') );
 		}
 	}
 
@@ -99,11 +99,11 @@ class MotosController extends AppController
 
 			if ( $this -> Moto ->  save( $this -> request -> data ) )
 			{
-				$this -> Flash -> success ( 'La Moto fue modificado exitosamente.');
+				$this->Session->setFlash('La Moto se modifico exitosamente', 'default', array('class' => 'alert alert-success'));			
 				return $this -> redirect ( array ( 'action' => 'index' ) );
 			}
 
-			$this -> Flash -> error ( 'La Moto no pudo ser modificado');
+			$this->Session->setFlash('La Moto no se pudo modificar', 'default', array('class' => 'alert alert-danger'));			
 		}
 
 		if ( ! $this -> request -> data )
@@ -121,7 +121,7 @@ class MotosController extends AppController
 
 		if ( $this -> Moto -> delete ( $id ) )
 		{
-			$this -> Flash -> success ( 'La Moto con Id ' . $id . ' Fue Eliminado' );
+			$this->Session->setFlash('La Moto fue eliminada', 'default', array('class' => 'alert alert-success'));			
 			$this -> redirect ( array ( 'action' => 'index' ) );
 		}
 	}

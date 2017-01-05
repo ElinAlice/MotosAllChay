@@ -47,9 +47,9 @@
 			<td><?php echo h($empleado['Empleado']['Direccion']); ?>&nbsp;</td>
 			<td><?php echo h($empleado['Empleado']['Tipo']); ?>&nbsp;</td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('Detalles'), array('action' => 'ver', $empleado['Empleado']['id']), array('class' => 'btn btn-sm btn-default')); ?>
-				<?php echo $this->Html->link(__('Editar'), array('action' => 'actualizar', $empleado['Empleado']['id']), array('class' => 'btn btn-sm btn-default')); ?>
-				<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'eliminar', $empleado['Empleado']['id']), array('class' => 'btn btn-sm btn-default'), __('Seguro que desea eliminar a Empleado # %s?', $empleado['Empleado']['id'])); ?>
+				<?php echo $this->Html->link(__('Detalles'), array('action' => 'ver', $empleado['Empleado']['id']), array('class' => 'btn btn-info')); ?>
+				<?php echo $this->Html->link(__('Editar'), array('action' => 'actualizar', $empleado['Empleado']['id']), array('class' => 'btn btn-info')); ?>
+				<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'eliminar', $empleado['Empleado']['id']), array('class' => 'btn btn-danger'), __('Seguro que desea eliminar a Empleado # %s?', $empleado['Empleado']['Nombre'] . " " . $empleado['Empleado']['Apellidos'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -61,7 +61,7 @@
 		<p>
 		<?php
 		echo $this->Paginator->counter(array(
-		'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+		'format' => __('Pagina {:page} de {:pages}, Mostrando {:current} registros de {:count}.')
 		));
 		?>	</p>
 		<ul class="pagination">
