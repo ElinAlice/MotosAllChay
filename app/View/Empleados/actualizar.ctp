@@ -7,7 +7,7 @@
 	echo $this -> Form -> input ( 'Direccion' );
 	echo $this -> Form -> input ( 'Nombre' );
 	echo $this -> Form -> input ( 'Apellidos' );
-	echo $this -> Form -> input ( 'Tipo' );
+	echo $this->Form->input('Tipo', array('class' => 'form-control', 'label' => 'Tipo', 'type' => 'select', 'options' => array('mecanico' => 'Mecanico', 'electricista' => 'Electricista'), array('class' => 'form-control')));
 	echo $this -> Form -> input ( 'id', array ( 'type' => 'hidden') );
 	echo $this -> Form -> end ( 'Guardar Empleado' );
 

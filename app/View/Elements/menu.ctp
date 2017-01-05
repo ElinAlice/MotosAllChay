@@ -8,7 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <?php echo $this->Html->link('Reparacion Motos', array('controller' => 'registros', 'action' => 'index'), array('class' => 'navbar-brand' )); ?>
+          <?php echo $this->Html->link('Motos | AllChay', array('controller' => 'registros', 'action' => 'index'), array('class' => 'navbar-brand icon-facebook' )); ?>
           
 
         </div>

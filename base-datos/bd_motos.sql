@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-01-2017 a las 08:38:23
+-- Tiempo de generación: 05-01-2017 a las 17:10:56
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 5.5.38
 
@@ -34,20 +34,21 @@ CREATE TABLE IF NOT EXISTS `empleados` (
   `Direccion` varchar(200) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
   `Apellidos` varchar(30) NOT NULL,
-  `Tipo` varchar(10) NOT NULL,
+  `Tipo` varchar(50) NOT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `DNI_Empleado` (`DNI_Empleado`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `empleados`
 --
 
 INSERT INTO `empleados` (`id`, `DNI_Empleado`, `Direccion`, `Nombre`, `Apellidos`, `Tipo`, `created`, `modified`) VALUES
-(1, 71960340, 'genga123', 'Robert', 'Human Caceres', 'Admin', NULL, '2016-12-29 16:47:16'),
-(2, 71960342, 'genga', 'Juan', 'Laurenz Salas', 'Admin', '2016-12-29 15:13:55', '2016-12-29 16:33:14');
+(1, 71960340, 'genga123', 'Robert', 'Human Caceres', 'electricis', NULL, '2017-01-05 17:09:12'),
+(2, 71960342, 'genga', 'Juan', 'Laurenz Salas', 'electricista', '2016-12-29 15:13:55', '2017-01-05 17:09:56'),
+(5, 71960341, 'urb santa marta ', 'robert ', 'huaman caceres', 'mecanico', '2017-01-05 17:08:37', '2017-01-05 17:08:37');
 
 -- --------------------------------------------------------
 

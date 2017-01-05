@@ -28,7 +28,7 @@
 		<table class="table table-striped">
 		<thead>
 		<tr>
-				<th><?php echo $this->Paginator->sort('id'); ?></th>
+				<th><?php echo $this->Paginator->sort('Id'); ?></th>
 				<th><?php echo $this->Paginator->sort('DNI_Empleado'); ?></th>
 				<th><?php echo $this->Paginator->sort('Nombre'); ?></th>
 				<th><?php echo $this->Paginator->sort('Apellidos'); ?></th>

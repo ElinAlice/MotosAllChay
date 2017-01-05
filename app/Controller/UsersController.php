@@ -108,10 +108,12 @@ class UsersController extends AppController {
 		if ($this->request->is('post')) {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
-				$this->Flash->success(__('El Usuario fue guardado.'));
+				
+				$this->Session->setFlash('El Usuario fue guardado.', 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('El Usuario no pudo ser guardado.'));
+				
+				$this->Session->setFlash('El Usuario no pudo ser guardado.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 	}
@@ -129,10 +131,10 @@ class UsersController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->User->save($this->request->data)) {
-				$this->Flash->success(__('The user has been saved.'));
+				$this->Session->setFlash('El Usuario fue modificado', 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('El usuario no pudo se modificado.'));
+				$this->Session->setFlash('El usuario no pudo ser modificado.', 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
@@ -154,9 +156,9 @@ class UsersController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->User->delete()) {
-			$this->Flash->success(__('El Usuario fue eliminado.'));
+			$this->Session->setFlash('El Usuario fue eliminado', 'default', array('class' => 'alert alert-success'));
 		} else {
-			$this->Flash->error(__('El usuario no pudo se eliminado.'));
+			$this->Session->setFlash('El usuario no pudo ser eliminado.', 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

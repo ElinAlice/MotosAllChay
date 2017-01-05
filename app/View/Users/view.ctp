@@ -1,49 +1,19 @@
-<div class="users view">
-<h2><?php echo __('User'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Fullname'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['fullname']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Username'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['username']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Password'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['password']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Role'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['role']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Created'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['created']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['modified']); ?>
-			&nbsp;
-		</dd>
-	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit User'), array('action' => 'edit', $user['User']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete User'), array('action' => 'delete', $user['User']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $user['User']['id']))); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('action' => 'add')); ?> </li>
-	</ul>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="page-header">
+
+			<h2><?php echo __('Detalles Usuario'); ?></h2>
+			</div>
+			<ul class="list-group">
+				<li class="list-group-item"><strong>ID: </strong><?php echo h($user['User']['id']); ?></li>
+				<li class="list-group-item"><strong>Nombre: </strong><?php echo h($user['User']['fullname']); ?></li>
+				<li class="list-group-item"><strong>Usuario: </strong><?php echo h($user['User']['username']); ?></li>
+				<li class="list-group-item"><strong>Rol: </strong><?php echo h($user['User']['role']); ?></li>
+				<li class="list-group-item"><strong>Creado: </strong><?php echo h($user['User']['created']); ?></li>
+				<li class="list-group-item"><strong>Modificado: </strong><?php echo h($user['User']['modified']); ?></li>
+			</ul>
+		</div>
+	</div>
 </div>

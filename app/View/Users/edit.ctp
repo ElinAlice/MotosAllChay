@@ -3,7 +3,11 @@
 		<div class="col-md-6">
 			<?php echo $this->Form->create('User', array('role' => 'form')); ?>
 				<fieldset>
+					
+					<div class="page-header">
+
 					<h2><?php echo __('Editar Usuario'); ?></h2>
+					</div>
 				<?php
 					echo $this->Form->input('id');
 					echo $this->Form->input('fullname', array('class' => 'form-control', 'label' => 'Nombre'));
@@ -15,15 +19,7 @@
 				<p>
 					<?php echo $this->Form->end(array('label' => 'Editar Usuario', 'class' =>'btn btn-success')); ?>
 				</p>
-			<div class="btn-group">
-			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-			    <?php echo __('Actions'); ?> <span class="caret"></span>
-			  </button>
-			  <ul class="dropdown-menu" role="menu">
-				<li><?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $this->Form->value('User.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?></li>
-				<li><?php echo $this->Html->link(__('Listar usuarios'), array('action' => 'index')); ?></li>
-			  </ul>
-			</div>
+			
 		</div>
 	</div>
 </div>
