@@ -1,4 +1,5 @@
 <?php
+App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 App::uses('AppModel', 'Model');
 /**
  * User Model
@@ -38,13 +39,9 @@ class User extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-			'uuid' => array(
-				'rule' => array('uuid'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			'unique' => array (
+				'rule' => 'isUnique',
+				'message' => 'El nombre de usuario ya esta registrado.'
 			),
 		),
 		'password' => array(
@@ -58,4 +55,14 @@ class User extends AppModel {
 			),
 		),
 	);
+
+	public function beforeSave ( $options = array () )
+	{
+		if ( isset( $this -> data [ $this -> alias ] [ 'password' ] ) )
+		{
+			$passwordHasher = new BlowfishPasswordHasher();
+			$this -> data [ $this -> alias ] [ 'password' ] = $passwordHasher -> hash ( $this -> data [ $this -> alias ] [ 'password' ] );
+		}
+		return true;
+	}
 }

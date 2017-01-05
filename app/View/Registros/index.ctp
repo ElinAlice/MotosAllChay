@@ -11,7 +11,7 @@
 
 <div class="page-header">
 
-	<h2><?php echo __('Registro'); ?></h2>
+	<h2><?php echo __('Reparaciones'); ?></h2>
 
 </div>
 

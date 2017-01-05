@@ -15,7 +15,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
 
-           <!-- <?php if($current_user['role'] == 'admin'): ?>
+            <?php if($current_user['role'] == 'admin'): ?>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -24,7 +24,8 @@
               </ul>
             </li>
             <?php endif; ?>
-            -->
+            
+
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Motos <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">

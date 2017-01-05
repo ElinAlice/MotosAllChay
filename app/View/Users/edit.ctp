@@ -1,22 +1,29 @@
-<div class="users form">
-<?php echo $this->Form->create('User'); ?>
-	<fieldset>
-		<legend><?php echo __('Edit User'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('fullname');
-		echo $this->Form->input('username');
-		echo $this->Form->input('password');
-		echo $this->Form->input('role');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('User.id')), array('confirm' => __('Are you sure you want to delete # %s?', $this->Form->value('User.id')))); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?></li>
-	</ul>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<?php echo $this->Form->create('User', array('role' => 'form')); ?>
+				<fieldset>
+					<h2><?php echo __('Editar Usuario'); ?></h2>
+				<?php
+					echo $this->Form->input('id');
+					echo $this->Form->input('fullname', array('class' => 'form-control', 'label' => 'Nombre'));
+					echo $this->Form->input('username', array('class' => 'form-control', 'label' => 'Usuario'));
+					// echo $this->Form->input('password', array('class' => 'form-control', 'label' => 'Contraseña'));
+					echo $this->Form->input('role', array('class' => 'form-control', 'label' => 'Rol', 'type' => 'select', 'options' => array('admin' => 'Administrador', 'user' => 'Usuario'), array('class' => 'form-control')));
+				?>
+				</fieldset>
+				<p>
+					<?php echo $this->Form->end(array('label' => 'Editar Usuario', 'class' =>'btn btn-success')); ?>
+				</p>
+			<div class="btn-group">
+			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			    <?php echo __('Actions'); ?> <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" role="menu">
+				<li><?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $this->Form->value('User.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?></li>
+				<li><?php echo $this->Html->link(__('Listar usuarios'), array('action' => 'index')); ?></li>
+			  </ul>
+			</div>
+		</div>
+	</div>
 </div>

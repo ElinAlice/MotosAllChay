@@ -12,7 +12,7 @@
 
 <div class="page-header">
 
-	<h2><?php echo __('Empleados'); ?></h2>
+	<h2><?php echo __('Trabajadores'); ?></h2>
 
 </div>
 

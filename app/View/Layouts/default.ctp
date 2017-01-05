@@ -21,6 +21,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <html>
 <head>
 	<?php echo $this->Html->charset(); ?>
+	<?php echo $this->Html->meta(array('name' => 'viewport', 'content' => 'width=device-width, minimum-scale=1, maximum-scale=1')); ?>
+
 	<title>
 		<?php echo $cakeDescription ?>:
 		<?php echo $this->fetch('title'); ?>
@@ -35,18 +37,27 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+	<script type="text/javascript">
+		$("#foto").fileinput();
+		
+		var basePath = "<?php echo Router::url('/'); ?>"
+	</script>
 </head>
 <body>
+	<?php if(isset($current_user)): ?>
+	<?php echo $this->element('menu'); ?>
+	<?php endif; ?>
+	
+    <div class="container" role="main">
 
-	<?php echo $this -> element ( 'menu' ); ?>
-	<div class="container theme-showcase" role="main">
-		
-		
+			<?php echo $this->Session->flash(); ?>
+			<?php echo $this->Session->flash('auth'); ?>
 
-		<?php echo $this->Flash->render(); ?>
-
-		<?php echo $this->fetch('content'); ?>	
-
-	</div>
+			<?php echo $this->fetch('content'); ?>
+			
+			<br>
+			<div id="msg"></div>
+			<br>
+    </div>
 </body>
 </html>
