@@ -18,7 +18,7 @@
     </div>
 <style>
     #login {
-        background: url('img/fondo.jpeg') no-repeat center;
+        background: #171717 url('img/fondo.jpeg') no-repeat center;
         background-size: cover;
         position: absolute;
         top:0;
